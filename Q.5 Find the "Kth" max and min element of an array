@@ -1,0 +1,66 @@
+package program.org;
+import java.util.*;
+
+public class Solution 
+{
+	
+	public static int minHeap(int []arr, int k)
+	{
+		PriorityQueue<Integer> heap = new PriorityQueue<>();
+		
+		int min = 0;
+		for(int i=0; i<arr.length;i++)
+		{
+			heap.add(arr[i]);
+		}
+		
+		for(int i=1; i<k; i++)
+		{
+			heap.poll();
+		}
+		
+		min = heap.peek();
+		
+		return min;
+	}
+	
+	
+	public static int maxHeap(int []arr, int k)
+	{
+		PriorityQueue<Integer>heap = new PriorityQueue<>(Collections.reverseOrder());
+		
+		int max = 0;
+		
+		for(int i=0; i<arr.length;i++)
+		{
+			heap.add(arr[i]);
+		}
+		
+		for(int i=1; i<k;i++)
+		{
+			heap.poll();
+		}
+		
+		max = heap.peek();
+		return max;
+		
+	}
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int heapArray[] = new int [n];
+		
+		for(int i=0; i<n; i++)
+		{
+			heapArray[i] = sc.nextInt();	
+		}
+		
+		int k = sc.nextInt();
+		//using min and max heap process
+		System.out.println("Max element is: "+ maxHeap(heapArray, k));
+		System.out.println("Min element is: "+ minHeap(heapArray, k));
+	}
+
+}
