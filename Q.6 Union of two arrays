@@ -1,0 +1,28 @@
+/*
+
+
+Given two arrays a[] and b[] of size n and n respectively. 
+The task is to find union between these two arrays.
+
+Union of the two arrays can be defined as the set containing distinct elements from both the arrays. 
+If there are repetitions, then only one occurrence of element should be printed in union.
+
+
+*/
+
+class Solution
+{
+    public static int doUnion(int a[], int n, int b[], int m) 
+    {
+        //Your code here
+        
+        Set <Integer> set = new HashSet<Integer>();
+        for(int i: a)
+        	set.add(i);
+        for(int j:b)
+        	set.add(j);
+        
+        return set.size();
+        
+    }
+}
